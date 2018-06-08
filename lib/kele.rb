@@ -6,13 +6,19 @@ class Kele
 
 
   def initialize(email, password)
-    response = self.class.post('/sessions')
+    options = {
+      body: {
+        email: email,
+        password: password
+      }
+    }
+    response = self.class.post('/sessions',options)
+
+    raise 'Invalid credentials' if response.code == 401
 
     p response
 
-    @auth_token = [:auth_token]
+    @auth_token = response['auth_token']
+
   end
-
-
-
 end
