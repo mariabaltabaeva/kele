@@ -38,16 +38,16 @@ class Kele
     JSON.parse(response.body)
   end
 
-  def create_message(sender, recipient_id, token, subject, stripped-text)
-      options = {
-        body: {
-        sender: sender,
-        recipient_id: recipient_id,
-        token: token,
-        subject: subject,
-        stripped-text: stripped-text
+  def create_message(sender, recipient_id, token, subject, stripped_text)
+    options = {
+        "body": {
+        "sender": sender,
+        "recipient_id": recipient_id,
+        "token": token,
+        "subject": subject,
+        "stripped-text": stripped_text
       }
-}
+    }
     response = self.class.post('/messages', options)
 
   end
