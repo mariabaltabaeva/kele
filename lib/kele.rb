@@ -29,13 +29,12 @@ class Kele
   end
 
   def get_mentor_availability(id)
-   response = self.class.get('/mentors/529277/student_availability', headers: { "authorization" => @auth_token })
+   response = self.class.get("/mentors/529277/student_availability", headers: { "authorization" => @auth_token })
    JSON.parse(response.body)
   end
 
-  def get_messages(page=1)
-
-    response = self.class.get('/message_threads/page?', headers: { "authorization" => @auth_token })
+  def get_messages(page)
+    response = self.class.get("/message_threads?page=#{page}", headers: { "authorization" => @auth_token })
     JSON.parse(response.body)
   end
 
